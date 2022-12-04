@@ -1,0 +1,80 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+class Member
+{
+  String name;
+  int age;
+  String add;
+  int salary;
+  int phone;
+    Member()
+  {
+    name = "no name";
+    add = "NIL";
+    salary=0;
+    phone=0;
+  }
+
+  Member (String name, int age, String add,int salary,int phone)
+  {
+
+    this.name = name;
+    this.age=age;
+    this.add =add;
+    this.salary=salary;
+    this.phone=phone;
+  }
+  void printsalary ()
+  {
+    System.out.print (name + " : " +salary);
+  }
+}
+class Employee extends Member{
+    String specialisation;
+    Employee(String name, int age, String add,int salary,int phone, String specialisation){
+        super(name,age,add,salary,phone);
+        this.specialisation=specialisation;
+    }
+    
+}
+class Manager extends Member{
+    String Dept;
+    Manager(String name, int age, String add,int salary,int phone, String Dept){
+        super(name,age,add,salary,phone);
+        this.Dept=Dept;
+    }
+    
+}
+
+public class Main
+{
+  public static void main (String[]args)
+  { 
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Enter Employee Name, address, age,salary, phone in sequence ");
+    StringBuilder n=new StringBuilder(sc.nextLine());
+    String na=n.toString();
+    StringBuilder ad  = new StringBuilder(sc.nextLine());
+    String add=ad.toString();
+    
+    int age=sc.nextInt();
+    int salary=sc.nextInt();
+    int phone=sc.nextInt();
+    
+    Member k=new Member(na,age,add,salary,phone);
+    k.printsalary();
+    System.out.print("Enter Manager Name, address,deptn age, salary, phone in sequence");
+    StringBuilder mname=new StringBuilder(sc.nextLine());
+    String mna=mname.toString();
+    StringBuilder madd=new StringBuilder(sc.nextLine());
+    String mad=madd.toString();
+    String d=sc.nextLine();
+    int ag=sc.nextInt();
+    
+    int sal=sc.nextInt();
+    int ph=sc.nextInt();
+   
+   Manager man=new Manager(mna,ag,mad,sal,ph,d);
+  }
+}
